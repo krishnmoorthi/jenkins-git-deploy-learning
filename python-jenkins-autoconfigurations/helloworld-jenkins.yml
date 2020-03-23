@@ -1,0 +1,26 @@
+- job:
+    name: PROJECTNAME
+    triggers:
+        - timed: "*/60 * * * *"
+        - generic-webhook-trigger:
+            token: PROJECTNAME
+    builders:
+        - shell: |
+            pwd
+            /user/virtualenv/path/python $HOME/jaana/python-automation-scripts/com/jcp/PROJECTNAME/execute.py
+ 
+    project-type: freestyle
+    defaults: global
+    description: 'Do Not Edit via Jenkins UI!!!'
+    disabled: false
+    concurrent: true
+    logrotate:
+        daysToKeep: 10
+        numToKeep: 10
+    wrappers:
+        - timeout:
+            timeout: 3
+            fail: true
+            type: absolute
+    
+    

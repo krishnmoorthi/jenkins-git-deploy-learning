@@ -1,13 +1,12 @@
 - job:
-    name: PROJECTNAME
+    name: helloworld
     triggers:
         - timed: "*/60 * * * *"
         - generic-webhook-trigger:
-            token: PROJECTNAME
+            token: helloworld
     builders:
         - shell: |
-            pwd
-            /user/virtualenv/path/python $HOME/jaana/python-automation-scripts/com/jcp/PROJECTNAME/execute.py
+            C:/Users/kthangav/AppData/Local/Continuum/anaconda3/python C:/Users/kthangav/Jaana/deploy/python-scripts/helloworld/execute.py
  
     project-type: freestyle
     defaults: global

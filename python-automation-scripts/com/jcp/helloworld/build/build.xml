@@ -9,7 +9,7 @@
 
 	<!-- property names -->
 	<property name="git.pull.location" location="${jaana.deployment.git.application.location}" />
-	<property name="jaana.deployment.application.name" value="${application}"/>
+	<property name="jaana.deployment.application.name" value="${application_name}"/>
 
 	<!-- create project folder in deployment location -->
 	<target name="deploy-project" depends="deploy-dependencies">

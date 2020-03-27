@@ -9,15 +9,23 @@
 
 	<!-- property names -->
 	<property name="git.pull.location" location="${jaana.deployment.git.application.location}" />
+	<property name="jaana.deployment.application.name" value="${application}"/>
 
 	<!-- create project folder in deployment location -->
-	<target name="create-deployment-project-folder">
+	<target name="deploy-project" depends="deploy-dependencies">
 		<mkdir dir="${jaana.deployment.location}/${jaana.deployment.application.name}" />
 		<echo message="Deployment folders creader successfully ! [ ${jaana.deployment.location}/${jaana.deployment.application.name} ]" />
+		<copy todir="${jaana.deployment.location}/${jaana.deployment.application.name}" preservelastmodified="true">
+			<fileset dir="${git.pull.location}/com/jcp/${jaana.deployment.application.name}">
+				<include name="resources/*" />
+				<include name="*.py" />
+				<include name="*.sh" />
+			</fileset>
+		</copy>
 	</target>
 
 	<!-- copying the mentioned dependency packages for the applications  -->
-	<target name="deploy" depends="create-deployment-project-folder">
+	<target name="deploy-dependencies">
 		<ac:for list="${jaana.deployment.application.package.dependencies}" param="package.dir" delimiter=",">
 			<sequential>
 				<echo message="copying dependency package scripts for package [@{package.dir}]" />
@@ -41,6 +49,6 @@
 		</ac:for>
 	</target>
 
-	<target name="build" depends="deploy" />
+	<target name="build" depends="deploy-project" />
 
 </project>

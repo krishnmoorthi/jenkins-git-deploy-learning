@@ -1,3 +1,3 @@
 #!/bin/sh
-export PYTHON_HOME=/user/pkulkar4/python3.7.0
-python PROJECTNAME.py
+#!/bin/sh
+C:/Users/kthangav/AppData/Local/Continuum/anaconda3/python C:\Users\kthangav\Jaana\deploy\python-scripts\helloworld/helloworld.py

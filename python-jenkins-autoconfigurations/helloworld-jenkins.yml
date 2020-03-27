@@ -6,7 +6,8 @@
             token: helloworld
     builders:
         - shell: |
-            C:/Users/kthangav/AppData/Local/Continuum/anaconda3/python C:/Users/kthangav/Jaana/deploy/python-scripts/helloworld/execute.py
+            cd  C:/Users/kthangav/Jaana/deploy/python-scripts/helloworld
+            ./execute.sh
  
     project-type: freestyle
     defaults: global
